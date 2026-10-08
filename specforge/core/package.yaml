@@ -1,0 +1,13 @@
+package:
+  type: specforge_core
+  version: 0.1.0-beta.1
+compatibility:
+  project_formats:
+  - 1
+migrations:
+  registry: migrations/registry.yaml
+payload:
+  core: .
+policy:
+  project_state: false
+  source_authority: external_candidate_distribution

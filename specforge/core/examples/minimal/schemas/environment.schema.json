@@ -1,0 +1,80 @@
+{
+  "required": [
+    "id",
+    "name",
+    "type"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^ENV-[A-Z0-9_-]+$"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "development",
+        "test",
+        "acceptance",
+        "staging",
+        "production",
+        "distribution",
+        "other"
+      ]
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "environment",
+  "type": "object",
+  "$defs": {
+    "actor": {
+      "type": "object",
+      "required": [
+        "type",
+        "id"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "human",
+            "ai",
+            "automated_system",
+            "external_system",
+            "unknown"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "ai": {
+          "type": "object",
+          "properties": {
+            "provider": {
+              "type": "string"
+            },
+            "tool": {
+              "type": "string"
+            },
+            "model": {
+              "type": "string"
+            },
+            "session_id": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,13 @@
+id: BLD-0001
+timestamp: 2026-09-03T11:00:00+01:00
+
+source_revision:
+  system: git
+  revision: abc1234
+
+specification_version: 1.1.0
+
+changes:
+  - CHG-0001
+
+result: passed

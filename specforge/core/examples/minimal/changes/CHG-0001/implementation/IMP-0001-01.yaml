@@ -1,0 +1,23 @@
+id: IMP-0001-01
+change: CHG-0001
+proposal: PROP-0001-01
+attempt: 1
+started_at: 2026-09-03T10:15:00+01:00
+
+actor:
+  type: ai
+  id: example-agent
+
+approach: >
+  Add a dedicated CSV export module.
+
+source_revision:
+  before: 0000000
+  after: abc1234
+
+outcome: passed
+
+tests:
+  passed:
+    - TEST-0001
+  failed: []

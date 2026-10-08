@@ -1,0 +1,4 @@
+id: ENV-PROD
+name: Production
+type: production
+description: Example production environment

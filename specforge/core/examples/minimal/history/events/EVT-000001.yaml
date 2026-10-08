@@ -1,0 +1,15 @@
+id: EVT-000001
+timestamp: 2026-09-03T09:00:00+01:00
+
+actor:
+  type: human
+  id: product-owner
+
+event_type: request_received
+
+entity:
+  type: change
+  id: CHG-0001
+
+resulting_state:
+  change_status: intake

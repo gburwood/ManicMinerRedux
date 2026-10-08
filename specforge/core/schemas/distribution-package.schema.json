@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specforge.local/schemas/distribution-package.schema.json",
+  "title": "SpecForge Core Distribution Package",
+  "type": "object",
+  "required": ["package", "compatibility", "migrations"],
+  "properties": {
+    "package": {
+      "type": "object",
+      "required": ["type", "version"],
+      "properties": {
+        "type": {"const": "specforge_core"},
+        "version": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "compatibility": {
+      "type": "object",
+      "required": ["project_formats"],
+      "properties": {
+        "project_formats": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "integer", "minimum": 1}
+        }
+      },
+      "additionalProperties": true
+    },
+    "migrations": {
+      "type": "object",
+      "required": ["registry"],
+      "properties": {
+        "registry": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "policy": {
+      "type": "object",
+      "properties": {
+        "project_state": {"const": false}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

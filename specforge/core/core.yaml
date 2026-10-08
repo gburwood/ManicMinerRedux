@@ -1,0 +1,78 @@
+core_version: 0.1.0-beta.1
+data_model_version: 0.1.0-alpha.10
+compatibility:
+  project_formats:
+  - 1
+ownership:
+  package_root: framework_owned
+  may_replace:
+  - specforge/core/
+  may_not_replace:
+  - specforge/project.yaml
+  - specforge/changes/
+  - specforge/decisions/
+  - specforge/history/
+  - specforge/evidence/
+canonical_integrity:
+  version: 1
+  encoding: utf-8
+  strip_utf8_bom: true
+  line_endings: lf
+governance_tier:
+  available_profiles:
+  - deterministic_tier_v1
+  fresh_project_initialization: fresh_project_bootstrap_v1
+  initialization_required_before_trusted_baseline: true
+material_revision:
+  verification_profile: immutable_material_v3
+  historical_profiles:
+  - immutable_material_v2
+  fallback_provider: specforge_snapshot
+  snapshot_algorithm: sha256
+  trusted_baseline: required
+  integration_evidence: required_for_new_controlled_material_completion
+material_boundary:
+  explicit_profile: explicit_v1
+  legacy_compatibility: supported
+  unclassified_path_policy: fail_closed
+managed_completion:
+  profile: managed_completion_guard_v3
+  session_guard: required_for_new_managed_sessions
+  final_delivery: completion_receipt_required
+managed_upgrade:
+  authorization_profile: bounded_core_upgrade_v1
+distributed_testing:
+  fixture_profile: portable_governance_v2
+  host_project_history_dependency: forbidden
+  complete_suite_external_execution: required
+distribution:
+  package_metadata: package.yaml
+  candidate_project_state: false
+prospective_finalisation:
+  profile: prospective_exact_candidate_v1
+  authority_record: PFA
+  scope: single_change_checkpoint
+  fallback: explicit_checkpoint_acceptance
+managed_interaction_integrity:
+  profile: controlled_v3
+  checkpoint_acceptance_proof: CAP
+  project_definition_reconciliation: managed_definition_v2
+  clarification_state: managed_v1
+dogfood_execution:
+  profile: lifecycle_efficiency_v1
+  continuation: derived_status_v1
+  observer: repository_amplification_v1
+managed_progress:
+  profile: managed_progress_v1
+  observer_activity: current_activity_v1
+  continuation_authority: derived_status_v1
+  heartbeat_target_seconds: 60
+  read_only_query: true
+integrity:
+  routine_profile: incremental_integrity_v1
+  full_profile: full_integrity_v1
+  state_version: 1
+  registry_profile: git_anchored_partitioned_accumulator_v1
+  routine_cost_basis: delta_and_closure
+  progress_profile: machine_readable_validator_progress_v1
+

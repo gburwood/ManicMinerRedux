@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "checkpoint-acceptance-proof",
+  "type": "object",
+  "required": [
+    "id",
+    "checkpoint",
+    "candidate",
+    "included_changes_digest",
+    "actor",
+    "presentation",
+    "session",
+    "acceptance_text",
+    "received_at"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^CAP-[0-9]{4,}$"
+    },
+    "checkpoint": {
+      "type": "string",
+      "pattern": "^CHK-[0-9]{4,}$"
+    },
+    "candidate": {
+      "type": "object",
+      "required": [
+        "material"
+      ],
+      "properties": {
+        "material": {
+          "$ref": "#/$defs/material"
+        }
+      },
+      "additionalProperties": true
+    },
+    "included_changes_digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "actor": {
+      "$ref": "#/$defs/actor"
+    },
+    "presentation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "session": {
+      "type": "string",
+      "minLength": 1
+    },
+    "acceptance_text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "presented_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "received_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "actor": {
+      "type": "object",
+      "required": [
+        "type",
+        "id"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "human",
+            "ai",
+            "automated_system",
+            "external_system",
+            "unknown"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "ai": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": true
+    },
+    "material": {
+      "type": "object",
+      "required": [
+        "provider",
+        "revision",
+        "file_count"
+      ],
+      "properties": {
+        "provider": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "file_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "required": [
+    "id",
+    "version",
+    "status",
+    "specification_version",
+    "source_revision",
+    "changes"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^REL-[0-9]{4,}$"
+    },
+    "version": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "candidate",
+        "approved",
+        "released",
+        "withdrawn",
+        "superseded"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "specification_version": {
+      "type": "string"
+    },
+    "source_revision": {
+      "type": "object",
+      "required": [
+        "revision"
+      ],
+      "properties": {
+        "system": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "branch": {
+          "type": "string"
+        }
+      }
+    },
+    "build": {
+      "type": "object"
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^CHG-[0-9]{4,}$"
+      },
+      "uniqueItems": true
+    },
+    "tests": {
+      "type": "object"
+    },
+    "validation": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^VAL-[0-9]{4,}$"
+      }
+    },
+    "approvals": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^APR-[0-9]{4,}$"
+      }
+    },
+    "deployments": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^DEP-[0-9]{4,}$"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "release",
+  "type": "object",
+  "$defs": {
+    "actor": {
+      "type": "object",
+      "required": [
+        "type",
+        "id"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "human",
+            "ai",
+            "automated_system",
+            "external_system",
+            "unknown"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "ai": {
+          "type": "object",
+          "properties": {
+            "provider": {
+              "type": "string"
+            },
+            "tool": {
+              "type": "string"
+            },
+            "model": {
+              "type": "string"
+            },
+            "session_id": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

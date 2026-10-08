@@ -1,0 +1,8 @@
+specification:
+  version: 1.1.0
+  status: active
+  previous_version: 1.0.0
+  requirements:
+    - REQ-0001
+  changes:
+    - CHG-0001

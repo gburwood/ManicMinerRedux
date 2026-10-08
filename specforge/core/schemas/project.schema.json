@@ -1,0 +1,242 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SpecForge project manifest format 1",
+  "type": "object",
+  "required": [
+    "specforge",
+    "project",
+    "specification",
+    "paths",
+    "ownership",
+    "packs",
+    "policy"
+  ],
+  "properties": {
+    "specforge": {
+      "type": "object",
+      "required": [
+        "project_format",
+        "core_version",
+        "data_model_version"
+      ],
+      "properties": {
+        "project_format": {
+          "const": 1
+        },
+        "core_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "data_model_version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "project": {
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^PRJ-[0-9]{4,}$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "specification": {
+      "type": "object",
+      "required": [
+        "product_specification",
+        "canonical_data_model",
+        "current_version"
+      ],
+      "properties": {
+        "product_specification": {
+          "type": "string",
+          "minLength": 1
+        },
+        "canonical_data_model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "current_version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "paths": {
+      "type": "object",
+      "required": [
+        "core",
+        "packs",
+        "schemas",
+        "rules",
+        "workflows",
+        "tools",
+        "tests",
+        "changes",
+        "decisions",
+        "history",
+        "evidence"
+      ],
+      "additionalProperties": {
+        "type": [
+          "string",
+          "array"
+        ]
+      }
+    },
+    "ownership": {
+      "type": "object",
+      "required": [
+        "framework_owned",
+        "project_owned"
+      ],
+      "properties": {
+        "framework_owned": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "project_owned": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "governance_tier": {
+      "type": "object",
+      "properties": {
+        "enforcement_profile": {
+          "type": "string",
+          "minLength": 1
+        },
+        "grandfather_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "additionalProperties": true
+    },
+    "material": {
+      "type": "object",
+      "required": [
+        "mode",
+        "roots"
+      ],
+      "properties": {
+        "mode": {
+          "const": "explicit_v1"
+        },
+        "roots": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "packs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "version",
+          "path",
+          "precedence",
+          "extensions"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "precedence": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "extensions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "schemas",
+                "rules",
+                "workflows",
+                "vocabulary",
+                "templates",
+                "assurance_profiles"
+              ]
+            },
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "policy": {
+      "type": "object",
+      "properties": {
+        "checkpoint": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "enum": [
+                "optional",
+                "required",
+                "disabled"
+              ]
+            },
+            "validation_required": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "acceptance_required": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

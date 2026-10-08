@@ -1,0 +1,98 @@
+{
+  "required": [
+    "id",
+    "requirement",
+    "given",
+    "when",
+    "then"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^AC-[0-9]{4,}-[0-9]{2,}$"
+    },
+    "requirement": {
+      "type": "string",
+      "pattern": "^REQ-[0-9]{4,}$"
+    },
+    "given": {
+      "type": "string"
+    },
+    "when": {
+      "type": "string"
+    },
+    "then": {
+      "type": "string"
+    },
+    "verification": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": [
+            "automated",
+            "manual",
+            "external",
+            "not_yet_defined"
+          ]
+        },
+        "tests": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^TEST-[0-9]{4,}$"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "acceptance-criterion",
+  "type": "object",
+  "$defs": {
+    "actor": {
+      "type": "object",
+      "required": [
+        "type",
+        "id"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "human",
+            "ai",
+            "automated_system",
+            "external_system",
+            "unknown"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "ai": {
+          "type": "object",
+          "properties": {
+            "provider": {
+              "type": "string"
+            },
+            "tool": {
+              "type": "string"
+            },
+            "model": {
+              "type": "string"
+            },
+            "session_id": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

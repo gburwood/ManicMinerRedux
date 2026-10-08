@@ -1,0 +1,19 @@
+id: APR-0001
+change: CHG-0001
+proposal: PROP-0001-01
+decision: approved
+
+actor:
+  type: human
+  id: product-owner
+
+timestamp: 2026-09-03T10:00:00+01:00
+
+scope:
+  proposed_specification_version: 1.1.0
+
+mechanism:
+  type: manual
+  reference: example-approval
+
+comment: Approved for implementation.

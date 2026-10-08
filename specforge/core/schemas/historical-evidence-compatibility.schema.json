@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specforge.local/schemas/historical-evidence-compatibility.schema.json",
+  "title": "SpecForge Historical Evidence Compatibility",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "type", "change", "version", "created_at", "effective_before", "rules"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^HEC-[0-9]{4,}$"},
+    "type": {"const": "historical_evidence_compatibility"},
+    "change": {"type": "string", "pattern": "^CHG-[0-9]{4,}$"},
+    "version": {"const": 1},
+    "created_at": {"type": "string", "format": "date-time"},
+    "effective_before": {"type": "string", "format": "date-time"},
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "issue", "status", "target", "allowed_difference", "evidence"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^HEC-[0-9]{4,}-R[0-9]{2,}$"},
+          "issue": {"enum": ["legacy_proposal_scope_create", "legacy_approval_proof_missing_type", "checkpoint_creation_chronology"]},
+          "status": {"enum": ["active", "active_with_notes", "blocked"]},
+          "target": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "sha256"],
+            "properties": {
+              "id": {"type": "string"},
+              "path": {"type": "string", "minLength": 1},
+              "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+            }
+          },
+          "allowed_difference": {"type": "string", "minLength": 1},
+          "evidence": {"type": "object"},
+          "notes": {"type": "string", "minLength": 1}
+        },
+        "allOf": [
+          {
+            "if": {"properties": {"status": {"const": "active_with_notes"}}, "required": ["status"]},
+            "then": {"required": ["notes"]}
+          }
+        ]
+      }
+    }
+  }
+}

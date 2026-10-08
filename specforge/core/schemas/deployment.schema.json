@@ -1,0 +1,96 @@
+{
+  "required": [
+    "id",
+    "release",
+    "environment",
+    "deployed_at",
+    "actor",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^DEP-[0-9]{4,}$"
+    },
+    "release": {
+      "type": "string",
+      "pattern": "^REL-[0-9]{4,}$"
+    },
+    "environment": {
+      "type": "string",
+      "pattern": "^ENV-[A-Z0-9_-]+$"
+    },
+    "deployed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "actor": {
+      "$ref": "#/$defs/actor"
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "in_progress",
+        "successful",
+        "failed",
+        "rolled_back"
+      ]
+    },
+    "source_revision": {
+      "type": "object"
+    },
+    "build": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "deployment",
+  "type": "object",
+  "$defs": {
+    "actor": {
+      "type": "object",
+      "required": [
+        "type",
+        "id"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "human",
+            "ai",
+            "automated_system",
+            "external_system",
+            "unknown"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "ai": {
+          "type": "object",
+          "properties": {
+            "provider": {
+              "type": "string"
+            },
+            "tool": {
+              "type": "string"
+            },
+            "model": {
+              "type": "string"
+            },
+            "session_id": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

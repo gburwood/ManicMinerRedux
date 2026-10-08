@@ -1,0 +1,54 @@
+registry_version: 1
+target_project_format: 1
+steps:
+- id: MIG-legacy-alpha3-to-format1
+  source:
+    layout: legacy_root
+    core_version: 0.1.0-alpha.3
+  target:
+    project_format: 1
+  handler: legacy_root_to_format1
+  legacy_framework:
+    manifest_path_keys:
+    - schemas
+    - rules
+    - workflows
+    - tools
+    - tests
+    rebind_canonical_data_model: true
+- id: MIG-legacy-alpha4-to-format1
+  source:
+    layout: legacy_root
+    core_version: 0.1.0-alpha.4
+  target:
+    project_format: 1
+  handler: legacy_root_to_format1
+  legacy_framework:
+    manifest_path_keys:
+    - schemas
+    - rules
+    - workflows
+    - tools
+    - tests
+    rebind_canonical_data_model: true
+compatibility:
+  project_format_1:
+    core_versions:
+    - 0.1.0-alpha.5
+    - 0.1.0-alpha.6
+    - 0.1.0-alpha.7
+    - 0.1.0-alpha.8
+    - 0.1.0-alpha.9
+    - 0.1.0-alpha.10
+    - 0.1.0-alpha.11
+    packs: version_declared
+policy:
+  distribution_source: candidate_package
+  distribution_is_project_state: false
+  unknown_source: refuse_without_mutation
+  ambiguous_source: refuse_without_mutation
+  ambiguous_path: refuse_without_mutation
+  missing_step: refuse_without_mutation
+  preserve_project_owned_state: required
+  preserve_canonical_ids: required
+  retire_legacy_framework_by_declared_ownership: required

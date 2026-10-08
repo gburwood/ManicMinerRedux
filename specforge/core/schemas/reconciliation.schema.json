@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SpecForge material reconciliation evidence",
+  "type": "object",
+  "required": [
+    "id",
+    "profile",
+    "kind",
+    "status",
+    "created_at",
+    "trusted",
+    "observed",
+    "material"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^REC-[0-9]{4,}$"
+    },
+    "profile": {
+      "const": "material_reconciliation_v1"
+    },
+    "kind": {
+      "enum": [
+        "unexplained_material",
+        "authority_bookkeeping",
+        "mixed_material",
+        "ambiguous_material"
+      ]
+    },
+    "status": {
+      "enum": [
+        "observed",
+        "acknowledged",
+        "adoption_proposed",
+        "undone",
+        "quarantined",
+        "repaired",
+        "superseded",
+        "blocked"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trusted": {
+      "$ref": "#/$defs/identity"
+    },
+    "observed": {
+      "$ref": "#/$defs/identity"
+    },
+    "material": {
+      "type": "object",
+      "required": ["paths"],
+      "properties": {
+        "paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "snapshot": {"$ref": "#/$defs/identity"},
+        "path_digests": {
+          "type": "object",
+          "additionalProperties": {
+            "type": ["string", "null"]
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "claim": {"type": ["string", "null"]},
+        "source": {"type": ["string", "null"]},
+        "verified": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    },
+    "acknowledgement": {
+      "type": "object",
+      "properties": {
+        "decision": {
+          "enum": ["keep", "undo", "set_aside", "leave_untouched", "unknown"]
+        },
+        "actor": {"type": "object"},
+        "received_at": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "adoption": {
+      "type": "object",
+      "properties": {
+        "change": {"type": "string", "pattern": "^CHG-[0-9]{4,}$"},
+        "proposal": {"type": "string", "pattern": "^PROP-[0-9]+-[0-9]+$"},
+        "candidate_revision": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "quarantine": {
+      "type": "object",
+      "properties": {
+        "provider": {"type": "string"},
+        "reference": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "authority_bookkeeping": {
+      "type": "object",
+      "properties": {
+        "checkpoint": {"type": "string", "pattern": "^CHK-[0-9]{4,}$"},
+        "acceptance": {"type": "string", "pattern": "^ACC-[0-9]{4,}$"},
+        "repairable": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    },
+    "blockers": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "supersedes": {
+      "type": ["string", "null"],
+      "pattern": "^REC-[0-9]{4,}$"
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "identity": {
+      "type": "object",
+      "required": ["provider", "revision"],
+      "properties": {
+        "provider": {"type": "string", "minLength": 1},
+        "revision": {"type": "string", "minLength": 1},
+        "file_count": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": true
+    }
+  }
+}

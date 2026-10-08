@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "prospective-finalisation-authority",
+  "type": "object",
+  "required": [
+    "id",
+    "change",
+    "proposal",
+    "proposal_digest",
+    "actor",
+    "timestamp",
+    "mechanism",
+    "presentation",
+    "informed_approval_proof",
+    "scope",
+    "baseline",
+    "projected_candidate",
+    "acceptance_requirements"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^PFA-[0-9]{4,}$"
+    },
+    "change": {
+      "type": "string",
+      "pattern": "^CHG-[0-9]{4,}$"
+    },
+    "proposal": {
+      "type": "string",
+      "pattern": "^PROP-[0-9]{4,}-[0-9]{2,}$"
+    },
+    "proposal_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "actor": {
+      "$ref": "#/$defs/actor"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "mechanism": {
+      "type": "object",
+      "required": [
+        "type",
+        "reference"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "conversation"
+          ]
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "presentation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "informed_approval_proof": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "mode",
+        "change_set"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "prospective_exact_candidate_v1"
+          ]
+        },
+        "change_set": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^CHG-[0-9]{4,}$"
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "baseline": {
+      "$ref": "#/$defs/material"
+    },
+    "projected_candidate": {
+      "$ref": "#/$defs/material"
+    },
+    "acceptance_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "actor": {
+      "type": "object",
+      "required": [
+        "type",
+        "id"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "human",
+            "ai",
+            "automated_system",
+            "external_system",
+            "unknown"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "ai": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": true
+    },
+    "material": {
+      "type": "object",
+      "required": [
+        "provider",
+        "revision",
+        "file_count"
+      ],
+      "properties": {
+        "provider": {
+          "enum": [
+            "specforge_snapshot"
+          ]
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "file_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

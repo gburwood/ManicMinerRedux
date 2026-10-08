@@ -1,0 +1,11 @@
+id: AC-0001-01
+requirement: REQ-0001
+
+given: A manager is viewing a filtered report
+when: The manager exports the report as CSV
+then: Only the currently displayed filtered rows are exported
+
+verification:
+  type: automated
+  tests:
+    - TEST-0001

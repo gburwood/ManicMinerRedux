@@ -1,0 +1,17 @@
+id: DEP-0001
+release: REL-0001
+environment: ENV-PROD
+deployed_at: 2026-09-03T12:00:00+01:00
+
+actor:
+  type: automated_system
+  id: example-pipeline
+
+status: successful
+
+source_revision:
+  system: git
+  revision: abc1234
+
+build:
+  id: BLD-0001

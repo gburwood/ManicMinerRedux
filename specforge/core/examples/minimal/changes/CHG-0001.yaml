@@ -1,0 +1,36 @@
+id: CHG-0001
+title: Add CSV export
+classification: feature
+status: completed
+priority: normal
+
+sources:
+  - type: manual
+    reference: example-request-1
+    received_at: 2026-09-03T09:00:00+01:00
+
+request:
+  summary: Add CSV export to the manager report
+
+clarification:
+  required: false
+
+impact_analysis:
+  current: IA-0001-01
+
+proposal:
+  current: PROP-0001-01
+
+approvals:
+  - APR-0001
+
+implementation:
+  attempts:
+    - IMP-0001-01
+
+requirements:
+  affected:
+    - REQ-0001
+
+release:
+  completed_in: REL-0001

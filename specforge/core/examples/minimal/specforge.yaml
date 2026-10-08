@@ -1,0 +1,25 @@
+specforge:
+  core_version: 0.1.0-alpha.3
+  data_model_version: 0.1.0-alpha.1
+project:
+  id: PRJ-0002
+  name: Minimal Example
+specification:
+  root: ./spec
+  current_version: 1.1.0
+paths:
+  changes: ./changes
+  history: ./history
+  releases: ./releases
+  source:
+  - ./src
+  tests:
+  - ./tests
+  schemas: ./schemas
+domains: []
+policy:
+  approval_mode: controlled
+  emergency_changes: allowed
+  trivial_change_exemption: allowed
+  forensic_traceability: required
+  repository_completeness: required

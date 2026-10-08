@@ -1,0 +1,48 @@
+specforge:
+  project_format: 1
+  core_version: 0.1.0-beta.1
+  data_model_version: 0.1.0-alpha.10
+project:
+  id: PRJ-0001
+  name: Manic Miner Redux
+specification:
+  root: ./
+  product_specification: ./PROJECT.md
+  canonical_data_model: ./specforge/core/docs/specforge-core-canonical-data-model-0.1.0-alpha.10.md
+  current_version: 0.1.0
+paths:
+  core: ./specforge/core
+  packs: ./specforge/packs
+  schemas: ./specforge/core/schemas
+  rules: ./specforge/core/rules
+  workflows: ./specforge/core/workflows
+  tools: ./specforge/core/tools
+  tests: ./specforge/core/tests
+  examples: ./specforge/core/examples
+  changes: ./specforge/changes
+  decisions: ./specforge/decisions
+  history: ./specforge/history
+  evidence: ./specforge/evidence
+packs: []
+ownership:
+  framework_owned:
+  - ./specforge/core
+  - ./specforge/packs
+  project_owned:
+  - ./specforge/project.yaml
+  - ./specforge/changes
+  - ./specforge/decisions
+  - ./specforge/history
+  - ./specforge/evidence
+policy:
+  approval_mode: controlled
+  emergency_changes: allowed
+  trivial_change_exemption: allowed
+  forensic_traceability: required
+  repository_completeness: required
+  integrity:
+    routine_profile: incremental_integrity_v1
+    full_profile: full_integrity_v1
+    full_audit_schedule: monthly
+    full_audit_warning_age_days: 35
+    maximum_full_audit_age_days: 45

@@ -1,0 +1,18 @@
+id: REQ-0001
+title: Export current report as CSV
+status: active
+
+requirement: >
+  A manager must be able to export the currently displayed report data as CSV.
+
+introduced:
+  by_change: CHG-0001
+  in_specification: 1.1.0
+
+acceptance_criteria:
+  - AC-0001-01
+
+history:
+  - change: CHG-0001
+    action: introduced
+    specification_version: 1.1.0

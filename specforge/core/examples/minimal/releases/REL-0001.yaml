@@ -1,0 +1,19 @@
+id: REL-0001
+version: 1.1.0
+status: released
+created_at: 2026-09-03T11:30:00+01:00
+
+specification_version: 1.1.0
+
+source_revision:
+  system: git
+  revision: abc1234
+
+build:
+  id: BLD-0001
+
+changes:
+  - CHG-0001
+
+deployments:
+  - DEP-0001
