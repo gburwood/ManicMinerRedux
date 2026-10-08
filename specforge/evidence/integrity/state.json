@@ -1,0 +1,57 @@
+{
+  "consumed_authority": {
+    "cap_ranges": [],
+    "pfa_ranges": []
+  },
+  "fingerprints": {
+    "core_version": "0.1.0-beta.1",
+    "governance_policy": "dc100ec38cc497c86d1a44147c9d3125221786c846606ac441a04407911906ba",
+    "schemas": "1f2cb3c523e7134cf1544313fc2985f18175b15b1a50abf189e8c4b9f784fd52",
+    "validator": "db22cf5004364236897f4786914364709d163bd94fa4592a64e033aa8e46047c"
+  },
+  "inventory": {
+    "by_kind": {
+      "forensic-event": 1
+    },
+    "max_numeric": {
+      "forensic-event": 100000
+    },
+    "total": 1
+  },
+  "last_full_audit": {
+    "audited_at": "2026-10-08T00:12:00Z",
+    "record_count": 1,
+    "revision": "93b6cd835f3d38f67fe00a85661fac2cbc0b73e4",
+    "tree": "fb2f0f8015da9b4258827cce39a240033bdd95a3"
+  },
+  "last_validation": {
+    "metrics": {
+      "changed_record_count": 0,
+      "closure_record_count": 0,
+      "historical_records_parsed": 1,
+      "index_partitions_read": 256,
+      "index_partitions_written": 1
+    },
+    "mode": "full_integrity_v1",
+    "validated_at": "2026-10-08T00:12:00Z"
+  },
+  "mutable_ids": [],
+  "profile": "incremental_integrity_v1",
+  "registry": {
+    "algorithm": "git_anchored_partitioned_accumulator_v1",
+    "digest": "c05acaedf56ad044625f8ca2b49957fa0751a55062115cbd477d24cb8a32eaf2",
+    "partition_count": 256,
+    "partitions": {
+      "62": {
+        "count": 1,
+        "sum": "f2e64f3e06a103015070a640d4bc35f747c021854958f56d534be94f888785fa",
+        "xor": "f2e64f3e06a103015070a640d4bc35f747c021854958f56d534be94f888785fa"
+      }
+    },
+    "path_exceptions": {}
+  },
+  "status": "valid",
+  "validated_revision": "93b6cd835f3d38f67fe00a85661fac2cbc0b73e4",
+  "validated_tree": "fb2f0f8015da9b4258827cce39a240033bdd95a3",
+  "version": 1
+}
