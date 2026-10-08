@@ -46,3 +46,6 @@ policy:
     full_audit_schedule: monthly
     full_audit_warning_age_days: 35
     maximum_full_audit_age_days: 45
+governance_tier:
+  enforcement_profile: deterministic_tier_v1
+  grandfather_digest: efe4287eb5e061372dd2a85777cbb741b7f7040ffdbcfbd6011471aab59fafec

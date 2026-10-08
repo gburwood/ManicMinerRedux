@@ -1,0 +1,15 @@
+id: EVT-100000
+timestamp: '2026-10-08T00:07:50.857184Z'
+actor:
+  type: automated_system
+  id: specforge-governance-tier
+event_type: governance_tier_initialized
+entity:
+  type: project
+  id: governance_tier
+related:
+  bootstrap: fresh_project_bootstrap_v1
+evidence:
+  grandfather_digest: efe4287eb5e061372dd2a85777cbb741b7f7040ffdbcfbd6011471aab59fafec
+  proposal_count: 0
+  provenance: fresh_project_bootstrap_v1
