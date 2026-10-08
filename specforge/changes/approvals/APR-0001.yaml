@@ -1,0 +1,18 @@
+id: APR-0001
+change: CHG-0001
+proposal: PROP-0001-02
+decision: approved
+actor:
+  type: human
+  id: product-owner
+timestamp: '2026-10-08T00:32:09.569Z'
+scope:
+  proposal_sha256: 53494b061360b96f682d759ff038c0500693d405bc55ecc0fc7dc89525a9bb3f
+mechanism:
+  type: conversation
+  reference: approve PROP-0001-02
+evidence:
+  proposal_digest_algorithm: sha256
+  proposal_digest: 53494b061360b96f682d759ff038c0500693d405bc55ecc0fc7dc89525a9bb3f
+  informed_approval_proof: specforge/evidence/informed-approvals/PRES-20261008T002932474807Z.yaml
+  received_at: '2026-10-08T00:32:09.569Z'

@@ -1,7 +1,7 @@
 id: CHG-0001
 title: Establish initial Manic Miner Redux project definition
 classification: documentation
-status: awaiting_approval
+status: approved
 sources:
 - type: human_request
   reference: SESSION-4a038a587257
@@ -21,7 +21,8 @@ proposal:
   - PROP-0001-02
 impact_analysis:
   current: IA-0001-01
-approvals: []
+approvals:
+- APR-0001
 implementation:
   attempts: []
 metadata:

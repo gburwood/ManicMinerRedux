@@ -1,0 +1,27 @@
+id: EVT-100003
+timestamp: '2026-10-08T00:32:43.968469+00:00'
+actor:
+  type: ai
+  id: codex
+event_type: integrity_blocker_investigated
+entity:
+  type: change
+  id: CHG-0001
+related:
+  proposal: PROP-0001-02
+  approval: APR-0001
+  superseded_proposal: PROP-0001-01
+evidence:
+  blocker: governance_tier_requested_invalid:PROP-0001-01
+  historical_proposal_sha256: 5272b940a6e357c4a43bd1f26d5a44de7fee3e277efc9f1837f3849ad7dd6ca2
+  diagnosis: Incremental proposal_errors validates every changed proposal, including
+    superseded revisions. The presented first revision lacks governance_tier.requested.
+    A new revision does not discharge that historical error. Historical compatibility
+    schema has no supported missing-tier rule. Full audit uses a validator that skips
+    controlled_v3 tier checks; refreshing state that way would not resolve the known
+    defect.
+  resolution_status: blocked_pending_separate_governed_framework_resolution
+  constraints: Do not rewrite presented proposal bytes, grandfather new history, fabricate
+    a compatibility exemption, alter Core incidentally, or reset integrity trust to
+    bypass the failure.
+  material_implementation: not_started

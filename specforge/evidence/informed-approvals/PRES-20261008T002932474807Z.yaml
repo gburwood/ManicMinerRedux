@@ -1,0 +1,13 @@
+type: informed_approval_proof
+proposal: PROP-0001-02
+proposal_digest: 53494b061360b96f682d759ff038c0500693d405bc55ecc0fc7dc89525a9bb3f
+change: CHG-0001
+presentation: PRES-20261008T002932474807Z
+session: SESSION-4a038a587257
+presented_at: '2026-10-08T00:29:32.475Z'
+decision: approved
+approval_text: approve PROP-0001-02
+actor:
+  type: human
+  id: product-owner
+received_at: '2026-10-08T00:32:09.569Z'
