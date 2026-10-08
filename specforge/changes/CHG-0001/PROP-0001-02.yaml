@@ -1,0 +1,49 @@
+id: PROP-0001-02
+change: CHG-0001
+revision: 2
+status: awaiting_approval
+created_at: '2026-10-08T00:29:23.837705+00:00'
+based_on_impact_analysis:
+- IA-0001-01
+proposed_specification_version: 0.1.0
+behaviour_summary: 'Establish the initial project definition for Manic Miner Redux:
+  classic cavern gameplay and physics, 8-bit presentation, progressive graphical corruption,
+  Willy growing awareness, and a level designer. Only PROJECT.md is proposed for material
+  modification; no game implementation is included.'
+declared_scope:
+- operation: modify
+  path: PROJECT.md
+project_definition_reconciliation:
+  mode: durable_update
+  path: PROJECT.md
+  request_digest: sha256:35755c5cef024239f11e32f99135d4edefcfb8fd04b8907796b35197be32d53d
+  change: CHG-0001
+  definition_format_version: 2
+  sha256: 702808a97c15e056da954ffb97698166134129e56394a433349379ca1f008f13
+acceptance_criteria:
+  criteria:
+  - PROJECT.md contains the complete approved managed-definition-v2 region with request/change
+    binding.
+  - Definition covers collectible-driven exits, enemies and hazards, limited air and
+    lives, deterministic classic movement/jump/collision/fall behaviour, conveyors
+    and crumbling platforms.
+  - Definition establishes readable 8-bit art/sound and progressive graphical corruption
+    with stable underlying gameplay.
+  - Definition includes Willy growing awareness and a level designer with editing,
+    saving/loading and shared-rule playtesting.
+  - Only project intent is established; platform, engine, precise physics, level count,
+    narrative script and licensing remain future governed decisions.
+  validation:
+  - Verify exact prepared PROJECT.md SHA-256 on authorised application.
+  - Review definition against the requested five scope areas.
+  - Run change-scoped SpecForge validation and required immutable-material/checkpoint
+    assurance after implementation.
+artifacts_expected:
+  material:
+  - PROJECT.md
+approvals: []
+governance_tier:
+  policy_digest: dc100ec38cc497c86d1a44147c9d3125221786c846606ac441a04407911906ba
+  calculated_minimum: HIGH
+  requested: HIGH
+supersedes: PROP-0001-01

@@ -15,9 +15,10 @@ request:
 governance:
   lifecycle_enforcement: controlled_v3
 proposal:
-  current: PROP-0001-01
+  current: PROP-0001-02
   revisions:
   - PROP-0001-01
+  - PROP-0001-02
 impact_analysis:
   current: IA-0001-01
 approvals: []
