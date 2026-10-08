@@ -1,0 +1,24 @@
+{
+  "type": "managed_interaction_session",
+  "session": "SESSION-4a038a587257",
+  "completion_guard_version": 3,
+  "started_at": "2026-10-08T00:19:40.382Z",
+  "request": {
+    "algorithm": "sha256",
+    "digest": "sha256:35755c5cef024239f11e32f99135d4edefcfb8fd04b8907796b35197be32d53d",
+    "bound_at": "2026-10-08T00:19:40.427Z"
+  },
+  "project_definition": {
+    "state": "defined",
+    "path": "PROJECT.md",
+    "sha256": "7518c1a619b6d9874a85b3ce78deb5a7635e3f9f76cdc781dd6cb51506ccf8c8",
+    "current_work": null,
+    "managed_definition": null
+  },
+  "project_definition_reconciliation": {
+    "required": true,
+    "change": null,
+    "prepared_path": null,
+    "prepared_sha256": null
+  }
+}
