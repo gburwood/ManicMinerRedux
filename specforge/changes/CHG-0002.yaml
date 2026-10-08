@@ -1,0 +1,34 @@
+id: CHG-0002
+title: Repair Core historical governance-tier correction handling
+classification: defect
+status: awaiting_approval
+sources:
+- type: human_request
+  reference: SESSION-4a038a587257
+  text: Resolve the SpecForge Core defect blocking Manic Miner Redux, then resume
+    the approved project definition. Preserve all governance evidence.
+  sha256: 7fd764302bd0be0b9c3d7f1354804d0bec123b8c2ceca66fa274cdc267d0845b
+request:
+  summary: Correct Core historical-tier validation with a narrowly scoped, human-authorised,
+    digest-bound append-only correction for superseded PROP-0001-01; preserve proposal,
+    presentation and approval bytes, align full and incremental controlled-v3 checks,
+    and prevent incomplete tier preparation. Resume CHG-0001 only after valid repair
+    evidence and authority.
+  detail: Resolve the SpecForge Core defect blocking Manic Miner Redux, then resume
+    the approved project definition. Preserve all governance evidence.
+governance:
+  lifecycle_enforcement: controlled_v3
+proposal:
+  current: PROP-0002-01
+  revisions:
+  - PROP-0002-01
+impact_analysis:
+  current: IA-0002-01
+approvals: []
+implementation:
+  attempts: []
+relationships:
+  unblocks:
+  - CHG-0001
+metadata:
+  session: SESSION-4a038a587257

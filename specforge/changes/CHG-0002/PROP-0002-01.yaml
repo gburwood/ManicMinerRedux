@@ -1,0 +1,80 @@
+id: PROP-0002-01
+change: CHG-0002
+revision: 1
+status: awaiting_approval
+created_at: '2026-10-08T00:37:14.954614+00:00'
+based_on_impact_analysis:
+- IA-0002-01
+proposed_specification_version: 0.1.0
+behaviour_summary: Correct Core historical-tier validation with a narrowly scoped,
+  human-authorised, digest-bound append-only correction for superseded PROP-0001-01;
+  preserve proposal, presentation and approval bytes, align full and incremental controlled-v3
+  checks, and prevent incomplete tier preparation. Resume CHG-0001 only after valid
+  repair evidence and authority.
+declared_scope:
+- operation: modify
+  path: specforge/core/tools/specforge-integrity.py
+- operation: modify
+  path: specforge/core/tools/validate-specforge.py
+- operation: modify
+  path: specforge/core/tools/specforge_governance_tier.py
+- operation: modify
+  path: specforge/core/schemas/historical-evidence-compatibility.schema.json
+- operation: add
+  path: specforge/core/tools/specforge_historical_tier_correction.py
+- operation: add
+  path: specforge/core/tests/run-historical-tier-correction-tests.py
+- operation: add
+  path: specforge/evidence/historical-compatibility/HEC-0001.yaml
+governance_tier:
+  requested: HIGH
+  policy_digest: dc100ec38cc497c86d1a44147c9d3125221786c846606ac441a04407911906ba
+  calculated_minimum: HIGH
+project_definition_reconciliation:
+  mode: context_only
+  path: PROJECT.md
+  request_digest: sha256:35755c5cef024239f11e32f99135d4edefcfb8fd04b8907796b35197be32d53d
+  change: CHG-0002
+  definition_format_version: 2
+  sha256: 7518c1a619b6d9874a85b3ce78deb5a7635e3f9f76cdc781dd6cb51506ccf8c8
+acceptance_criteria:
+  criteria:
+  - Add a narrowly defined historical compatibility issue for a superseded proposal
+    missing only governance_tier.requested; retain the original proposal bytes and
+    all presentation/approval evidence.
+  - Correction targets PROP-0001-01 at its exact immutable SHA-256 and declares requested
+    HIGH under its archived policy. Verify its scope classification and existing policy/calculated
+    minimum; never lower a protected tier or waive unrelated errors.
+  - Require a current different proposal in the same change, explicit superseding
+    lineage, and a valid managed human approval of this repair proposal that expressly
+    scopes the correction record. Bind the correction to its target id/path/hash,
+    archived policy, superseding proposal and repair proposal/approval proof. Refuse
+    correction of a current proposal or any proposal previously used for approved
+    implementation.
+  - Use shared fail-closed correction verification in full and incremental integrity
+    validation. Full validation must apply governance-tier checks to controlled_v3
+    as well as controlled_v2, including retained superseded revisions with declared
+    scope. No full-audit state refresh may conceal the known missing-tier error.
+  - Tier prepare must reject missing or invalid requested tiers before modifying proposal
+    bytes or writing preparation evidence. Preserve valid existing HIGH-tier preparation.
+  - Add portable regression cases for valid historical correction, missing approval,
+    digest drift, current target, unrelated malformed tier, stale/invalid policy,
+    below-minimum correction and full/incremental parity.
+  - After implementation run relevant regression suites and exhaustive validation
+    required for changed validator/schema semantics; establish a state-only integrity
+    receipt only after successful audit. Capture actual implementation/source-revision
+    evidence and prepare a governed checkpoint for human acceptance.
+  - PROJECT.md and CHG-0001 approved proposal remain unchanged during the Core repair.
+    Resume CHG-0001 only once the Core repair has met required gates; recheck its
+    exact approval and implementation authority, apply its prepared definition, validate
+    and stop at checkpoint acceptance.
+artifacts_expected:
+  material:
+  - specforge/core/tools/specforge-integrity.py
+  - specforge/core/tools/validate-specforge.py
+  - specforge/core/tools/specforge_governance_tier.py
+  - specforge/core/schemas/historical-evidence-compatibility.schema.json
+  - specforge/core/tools/specforge_historical_tier_correction.py
+  - specforge/core/tests/run-historical-tier-correction-tests.py
+  - specforge/evidence/historical-compatibility/HEC-0001.yaml
+approvals: []

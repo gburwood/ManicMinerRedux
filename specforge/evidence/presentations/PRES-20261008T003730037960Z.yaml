@@ -1,0 +1,22 @@
+id: PRES-20261008T003730037960Z
+type: proposal_presentation
+proposal: PROP-0002-01
+proposal_digest: 27858696f156534072e48549fc7b5c92ff9361a1d45540fb78f76cd1002b912d
+change: CHG-0002
+session: SESSION-4a038a587257
+presented_at: '2026-10-08T00:37:30.038Z'
+summary: Repair SpecForge Core so an explicitly approved, hash-bound correction can
+  supply the missing HIGH tier for the superseded first proposal while preserving
+  every original record. Apply the same strict checks in full and incremental validation,
+  reject incomplete tier preparation, and test rejection of invalid correction evidence.
+  After the repair passes its required validation and acceptance gates, resume the
+  already-approved PROJECT.md change and stop for checkpoint acceptance.
+user_prompt: 'Repair SpecForge Core so an explicitly approved, hash-bound correction
+  can supply the missing HIGH tier for the superseded first proposal while preserving
+  every original record. Apply the same strict checks in full and incremental validation,
+  reject incomplete tier preparation, and test rejection of invalid correction evidence.
+  After the repair passes its required validation and acceptance gates, resume the
+  already-approved PROJECT.md change and stop for checkpoint acceptance.
+
+
+  Shall I make this change?'

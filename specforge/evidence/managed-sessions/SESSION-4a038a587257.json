@@ -17,11 +17,12 @@
   },
   "project_definition_reconciliation": {
     "required": true,
-    "mode": "durable_update",
-    "change": "CHG-0001",
+    "mode": "context_only",
+    "change": "CHG-0002",
     "path": "PROJECT.md",
-    "prepared_path": "specforge/evidence/prepared/project-definitions/SESSION-4a038a587257.md",
-    "prepared_sha256": "702808a97c15e056da954ffb97698166134129e56394a433349379ca1f008f13",
+    "authoritative_sha256": "7518c1a619b6d9874a85b3ce78deb5a7635e3f9f76cdc781dd6cb51506ccf8c8",
+    "prepared_path": null,
+    "prepared_sha256": null,
     "request_digest": "sha256:35755c5cef024239f11e32f99135d4edefcfb8fd04b8907796b35197be32d53d",
     "definition_format_version": 2
   }

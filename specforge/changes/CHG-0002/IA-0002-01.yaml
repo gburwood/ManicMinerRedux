@@ -1,0 +1,25 @@
+id: IA-0002-01
+change: CHG-0002
+revision: 1
+affected:
+  framework:
+  - specforge/core/tools/specforge-integrity.py
+  - specforge/core/tools/validate-specforge.py
+  - specforge/core/tools/specforge_governance_tier.py
+  - specforge/core/schemas/historical-evidence-compatibility.schema.json
+  - specforge/core/tools/specforge_historical_tier_correction.py
+  - specforge/core/tests/run-historical-tier-correction-tests.py
+  - specforge/evidence/historical-compatibility/HEC-0001.yaml
+  blocked_change:
+  - CHG-0001
+summary: Separate explicitly requested framework repair. Extend existing historical
+  compatibility with exact-target authorisation; reconcile validator parity rather
+  than deleting or rewriting history. PROJECT.md is context only. Framework semantic
+  changes require exhaustive assurance.
+risks:
+- description: Overbroad historical exemptions could conceal invalid authority; reject
+    unrelated differences and authority-bearing historical targets.
+- description: A correction must remain auditable and not itself grant authority to
+    the old proposal.
+- description: Modified Core validation requires full audit and portable negative
+    tests before checkpoint.
