@@ -1,0 +1,4 @@
+﻿version: 1
+trusted:
+  provider: git
+  revision: 391945096b83dafb72fead348ce76e7100d8eaf3
