@@ -1,0 +1,22 @@
+id: PRES-20261008T002858970491Z
+type: proposal_presentation
+proposal: PROP-0001-01
+proposal_digest: 5272b940a6e357c4a43bd1f26d5a44de7fee3e277efc9f1837f3849ad7dd6ca2
+change: CHG-0001
+session: SESSION-4a038a587257
+presented_at: '2026-10-08T00:28:58.971Z'
+summary: 'Establish PROJECT.md as the initial Manic Miner Redux definition: classic
+  item-collection cavern gameplay and deterministic movement/jump physics; readable
+  8-bit visuals and sound; progressive graphical corruption that preserves gameplay
+  clarity; Willy gradually becoming aware of his artificial world; and a level designer
+  with saving, loading and playtesting. This change establishes the definition only.
+  Game and editor implementation will require later governed changes.'
+user_prompt: 'Establish PROJECT.md as the initial Manic Miner Redux definition: classic
+  item-collection cavern gameplay and deterministic movement/jump physics; readable
+  8-bit visuals and sound; progressive graphical corruption that preserves gameplay
+  clarity; Willy gradually becoming aware of his artificial world; and a level designer
+  with saving, loading and playtesting. This change establishes the definition only.
+  Game and editor implementation will require later governed changes.
+
+
+  Shall I make this change?'

@@ -1,0 +1,82 @@
+version: 1
+name: specforge-core-governance-tier-policy
+tiers:
+  LOW: 1
+  MEDIUM: 2
+  HIGH: 3
+defaults:
+  unmatched_tier: HIGH
+host_project_semantics:
+  authoritative_sources:
+    - specification.product_specification
+    - specification.canonical_data_model
+  optional_configuration: governance_tier.host_classification
+  ordinary_tier_default: LOW
+  note: Explicit host rules never declassify protected Core, policy, schema, workflow, pack or project-authority surfaces.
+rules:
+  - id: protected_governance_control
+    tier: HIGH
+    description: Installed Core control surfaces, packs and project manifest/authority.
+    globs:
+      - specforge/core/tools/**
+      - specforge/core/schemas/**
+      - specforge/core/rules/**
+      - specforge/core/workflows/**
+      - specforge/core/policy/**
+      - specforge/core/migrations/**
+      - specforge/core/core.yaml
+      - specforge/core/package.yaml
+      - specforge/packs/**
+      - specforge/project.yaml
+      - specforge/SPECFORGE.md
+  - id: authoritative_product_specification
+    tier: HIGH
+    description: The versioned Core product specification and canonical data model chain.
+    globs:
+      - specforge/core/docs/specforge-core-product-spec-*.md
+      - specforge/core/docs/specforge-core-canonical-data-model-*.md
+  - id: repository_and_ci_infrastructure
+    tier: MEDIUM
+    description: Repository-level configuration and general development/CI infrastructure.
+    globs:
+      - .gitignore
+      - .gitattributes
+      - .github/**
+      - CHANGELOG.md
+      - pyproject.toml
+      - requirements*.txt
+      - package.json
+      - package-lock.json
+      - Makefile
+  - id: existing_test_harness_change
+    tier: MEDIUM
+    description: Modification, deletion, rename, copy or type change of an existing Core test/example harness.
+    statuses:
+      - M
+      - D
+      - R
+      - C
+      - T
+      - U
+      - X
+      - B
+    globs:
+      - specforge/core/tests/**
+      - specforge/core/examples/**
+  - id: new_ordinary_test
+    tier: LOW
+    description: Addition of a new ordinary Core test/example harness.
+    statuses:
+      - A
+    globs:
+      - specforge/core/tests/**
+      - specforge/core/examples/**
+  - id: ordinary_documentation
+    tier: LOW
+    description: Ordinary non-authoritative documentation.
+    globs:
+      - docs/**
+      - specforge/core/docs/**
+      - README
+      - README.*
+      - '**/*.md'

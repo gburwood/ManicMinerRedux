@@ -1,0 +1,8 @@
+{
+  "type": "managed_completion_receipt",
+  "receipt_version": 3,
+  "outcome": "non_delivery",
+  "session": "SESSION-4a038a587257",
+  "reason": "Proposal PROP-0001-01 presented for human approval. Interaction stops at the requested approval boundary; no material implementation or final deliverable.",
+  "closed_at": "2026-10-08T00:28:59.736Z"
+}

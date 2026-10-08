@@ -1,0 +1,18 @@
+id: IA-0001-01
+change: CHG-0001
+revision: 1
+affected:
+  specification:
+  - PROJECT.md
+  implementation: []
+summary: Replace the pending-refinement intent anchor through an approval-bound managed
+  definition. Preserve existing prose as background. No code, assets, Core, packs
+  or manifest changes. No existing changes compete with this scope.
+risks:
+- description: Classic fidelity requires precise physics parameters later; this definition
+    does not invent them.
+- description: Graphical corruption must preserve readable hazards and stable physics.
+compatibility:
+  runtime_impact: none
+open_changes:
+  conflicts: []

@@ -1,0 +1,14 @@
+id: EVT-100001
+timestamp: '2026-10-08T00:28:41.804114Z'
+actor:
+  type: automated_system
+  id: specforge-governance-tier
+event_type: governance_tier_prepared
+entity:
+  type: proposal
+  id: PROP-0001-01
+related:
+  change: CHG-0001
+evidence:
+  policy_digest: dc100ec38cc497c86d1a44147c9d3125221786c846606ac441a04407911906ba
+  calculated_minimum: HIGH
